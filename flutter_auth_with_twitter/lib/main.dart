@@ -1,13 +1,9 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
-
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-
-import 'package:flutter_twitter_login/flutter_twitter_login.dart';
-
+import 'package:flutter/material.dart';
 import 'package:flutter_auth_with_twitter/util/strings.dart';
+import 'package:flutter_twitter_login/flutter_twitter_login.dart';
 
 void main() => runApp(new MyApp());
 
@@ -59,9 +55,10 @@ class _MyHomePageState extends State<MyHomePage> {
   FirebaseUser _currentUser;
 
   TwitterLoginResult _twitterLoginResult;
+  TwitterLoginStatus _twitterLoginStatus;
   TwitterSession _currentUserTwitterSession;
 
-  String _loggedInMessage = '';
+  String _loggedInMessage;
 
 
   void _handleTwitterSignIn() async {
@@ -74,8 +71,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
    _twitterLoginResult = await twitterLogin.authorize();
    _currentUserTwitterSession = _twitterLoginResult.session;
+   _twitterLoginStatus = _twitterLoginResult.status;
 
-    switch (_twitterLoginResult.status) {
+    switch (_twitterLoginStatus) {
       case TwitterLoginStatus.loggedIn:
         _currentUserTwitterSession = _twitterLoginResult.session;
         snackBarMessage = 'Successfully signed in as';
@@ -101,10 +99,14 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _loggedInMessage = '$snackBarMessage ${_currentUser.displayName}';
-    });
+      if (_twitterLoginStatus == TwitterLoginStatus.loggedIn && _currentUser != null) {
+        _loggedInMessage = '$snackBarMessage ${_currentUser.displayName}';
 
-    debugPrint(_loggedInMessage);
+      } else {
+
+        _loggedInMessage = _loggedInMessage = '$snackBarMessage';
+      }
+    });
   }
 
   Widget buildHome(BuildContext context) {
