@@ -60,7 +60,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   String _loggedInMessage;
 
-
   void _handleTwitterSignIn() async {
     String snackBarMessage = '';
 
