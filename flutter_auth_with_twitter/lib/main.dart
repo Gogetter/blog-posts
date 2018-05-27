@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_auth_with_twitter/drawer/my_drawer_home_page.dart';
 import 'package:flutter_auth_with_twitter/util/strings.dart';
 import 'package:flutter_twitter_login/flutter_twitter_login.dart';
 
@@ -99,7 +100,11 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       if (_twitterLoginStatus == TwitterLoginStatus.loggedIn && _currentUser != null) {
-        _loggedInMessage = '$snackBarMessage ${_currentUser.displayName}';
+
+        // navigate to MyDrawerHomePage
+        Navigator.push(context, new MaterialPageRoute(
+          builder: (_) => new MyDrawerHomePage(_currentUser),
+        ));
 
       } else {
 
