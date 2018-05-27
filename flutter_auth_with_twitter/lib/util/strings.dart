@@ -5,4 +5,6 @@ class Strings {
   static final String twitterText = 'Sign In with Twitter';
   static final String appName = 'Flutter Journey';
   static final String home = 'Home';
+  static final String aboutUs = 'About Us';
+  static final String logOut = 'Log Out';
 }
