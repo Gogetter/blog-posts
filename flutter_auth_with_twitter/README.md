@@ -5,4 +5,4 @@ Flutter Widget: Drawer
 ## Getting Started
 
 For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+[documentation](https://docs.flutter.io/flutter/material/Drawer-class.html).
