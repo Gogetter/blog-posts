@@ -13,7 +13,7 @@ environment:
   sdk: ">=2.0.0-dev.68.0 <3.0.0"
 
 dependencies:
-  cloud_firestore: ^0.9.5+1
+  cloud_firestore: 0.9.5+2
   validators: ^1.0.0+1
   flutter:
     sdk: flutter
