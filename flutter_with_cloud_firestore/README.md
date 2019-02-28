@@ -4,13 +4,10 @@ Demo on using Flutter to build an app that reads and writes data to Firebase Clo
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project demonstrates building a simple app which stores and queries data on Cloud Firestore
 
-A few resources to get you started if this is your first Flutter project:
+- [Blog Post](https://medium.com/@euedofia/flutter-cloud-firestore-an-app-46c703f1dc90)
 
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
-
-For help getting started with Flutter, view our 
+For help getting started with Flutter, view Flutters'
 [online documentation](https://flutter.io/docs), which offers tutorials, 
 samples, guidance on mobile development, and a full API reference.
