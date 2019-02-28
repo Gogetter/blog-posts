@@ -53,8 +53,10 @@ class VisitorSignOutState extends State<VisitorSignOut>{
                       // notice dart allows us to ignore or use 'new'
                       return new Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: RaisedButton(
-                          child: Text(Constants.signOut),
+                        child: RaisedButton.icon(
+                          icon: new Icon(Icons.directions_walk, color: Colors.red),
+                          label: Text(Constants.signOut),
+                          color: Colors.blueGrey[50],
                           onPressed: () {
                             if (_formKey.currentState.validate()) {
                               final Future<Map<String, dynamic>> visitorData = CloudFirestoreUtils.findVisitor(searchCtrl.text);
@@ -76,6 +78,7 @@ class VisitorSignOutState extends State<VisitorSignOut>{
                                           content: Text('${foundVisitor.visitorName} signed out successfully')
                                       )
                                   );
+                                  Navigator.pop(context);
                                 });
 
                               });
