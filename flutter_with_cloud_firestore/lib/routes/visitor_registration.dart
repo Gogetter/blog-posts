@@ -147,8 +147,10 @@ class VisitorFormState extends State<VisitorForm> {
                           builder: (BuildContext context) {
                             return Padding(
                               padding: const EdgeInsets.all(padding),
-                              child: RaisedButton(
-                                  child: Text(Constants.register),
+                              child: RaisedButton.icon(
+                                icon: new Icon(Icons.save, color: Colors.blue),
+                                  label: Text(Constants.register),
+                                  color: Colors.blueGrey[50],
                                   onPressed: () {
                                     //perform validation before persisting registration info
                                     if (_formKey.currentState.validate()) {

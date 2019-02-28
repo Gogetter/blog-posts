@@ -41,19 +41,24 @@ class _HomePageState extends State<HomePage> {
         body: Center(
 
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               // sign in
-              RaisedButton(
-                child: Text(Constants.signIn),
+              RaisedButton.icon(
+                icon: new Icon(Icons.supervised_user_circle, color: Colors.lightBlue,),
+                label: Text(Constants.signIn),
+                color: Colors.blueGrey[50],
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => VisitorForm()));
                 },
               ),
 
               // sign out
-              RaisedButton(
-                child: Text(Constants.signOut),
+              RaisedButton.icon(
+                icon: new Icon(Icons.directions_walk, color: Colors.red),
+                label: Text(Constants.signOut),
+                color: Colors.blueGrey[50],
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => VisitorSignOut()));
                 },
