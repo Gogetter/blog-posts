@@ -87,9 +87,12 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
     }
 
-    _currentUser = await _firebaseAuth.signInWithTwitter(
+    AuthCredential _authCredential = TwitterAuthProvider.getCredential(
         authToken: _currentUserTwitterSession?.token ?? '',
         authTokenSecret: _currentUserTwitterSession?.secret ?? ''
+    );
+    _currentUser = await _firebaseAuth.signInWithCredential(
+        _authCredential
     );
 
     setState(() {
